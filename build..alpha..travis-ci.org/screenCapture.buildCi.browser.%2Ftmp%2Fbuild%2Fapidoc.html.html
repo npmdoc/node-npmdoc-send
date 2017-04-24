@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.send.send">
+            function <span class="apidocSignatureSpan"></span>send
+            <span class="apidocSignatureSpan">(req, path, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.send.mime.Mime">
             function <span class="apidocSignatureSpan">send.</span>mime.Mime
             <span class="apidocSignatureSpan">()</span>
@@ -190,6 +199,37 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.send" id="apidoc.module.send">module send</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.send.send" id="apidoc.element.send.send">
+        function <span class="apidocSignatureSpan"></span>send
+        <span class="apidocSignatureSpan">(req, path, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function send(req, path, options) {
+  return new SendStream(req, path, options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (err &amp;&amp; err.code === 'ENOENT' &amp;&amp; !extname(path) &amp;&amp; path[path.length - 1] !== sep) {
+    // not found, check extensions
+    return next(err)
+  }
+  if (err) return self.onStatError(err)
+  if (stat.isDirectory()) return self.redirect(path)
+  self.emit('file', path, stat)
+  self.<span class="apidocCodeKeywordSpan">send</span>(path, stat)
+})
+
+function next (err) {
+  if (self._extensions.length &lt;= i) {
+    return err
+      ? self.onStatError(err)
+      : self.error(404)
+...</pre></li>
+    </ul>
+
 
 
     <h2>
